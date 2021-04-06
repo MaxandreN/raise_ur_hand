@@ -1,0 +1,158 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* container */
+.container{
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* titre page */
+.titrePage{
+    background-color: white;
+    width: 100%;
+    margin-top: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    border-radius: 0.25em;
+    padding: 0.5em;
+}
+
+/* article */
+article{
+    display: inline-block;
+    width: 25%;
+    min-width: 150px;
+    max-width: 300px;;
+    margin-top: 5%;
+    background-color: rgb(228, 226, 226);
+    margin-left: 2%;
+    margin-right: 2%;
+    
+    border-radius: 0.5em;
+    transition: all .4s ease;
+    
+}
+
+.card:hover{
+    border-left: gray 10%;
+    background-color: rgba(236, 236, 236, 0.7);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.10);
+}
+    .containerTitre{
+        margin-right: 1em;
+        margin-left: 1em;
+        margin-bottom: 1em;
+    }
+        .titre{
+            
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 0em;
+            margin-top: 0.5em;
+        } 
+        .temps{
+            font-size: 0.75em;
+            margin-top: 0em;
+        }
+    
+    article div p{
+        font-size: 1em;
+        margin: 10px;
+    }
+
+    article div p span{
+        font-weight: bold;
+    }
+
+    .cardEtudiant{ 
+        .containerTitre{
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .imageCard{
+            background-image:url(http://localhost:3000/userPhotos/default.jpg);
+            background-size: cover;
+            width: 100%;
+            height: 200px;
+
+        }
+
+        .nextStatutCard{
+            display: none;
+        }
+
+        
+        
+    }
+    .cardEtudiant:hover{
+            border-left: gray 10%;
+
+            div p{
+                font-size: 1.1em;
+                margin: 7px;
+                
+            }
+
+            div p span{
+                display: none;
+            }
+            .nextStatutCard{
+                display: block;
+                font-size: 1.1em;
+                margin: 7px;
+                font-weight: normal;
+                font-weight: bold;
+            }
+            .statutCard{
+                display: none;
+            }
+
+            .imageCard{
+                background-image:url(http://localhost:3000/userPhotos/default.jpg);
+                background-size: cover;
+                width: 100%;
+                height: 200px;
+    
+            }
+            
+        }
+
+        .présent{
+            background-color: #82d87b;
+            p{
+                color: white;
+            }
+        }
+        .présent:hover{
+            .nextStatutCard{
+                background-color: #dd6363bc;
+            }
+        }
+
+        .absent{
+            background-color: #dd6363bc;
+        }
+        .absent:hover{
+            .nextStatutCard{
+                background-color: #f3b135bc;
+            }
+        }
+
+
+        .retard{
+            background-color: #f3b135bc;
+        }
+        .retard:hover{
+            .nextStatutCard{
+                background-color: #83d87ba1;
+            }
+        }
+
+    
+
+   
