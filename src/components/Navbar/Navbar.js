@@ -39,7 +39,7 @@ class Navbar extends React.Component {
                 </div>
                 <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
                     {MenuItems.map((item, index) => {
-                        if(item.role.includes(sessionStorage.getItem('role'))){
+                        if(item.role.includes(window.role)){
                             return(
                                 <NavLink exact activeClassName='current' className={item.cName} to={item.url} style={{textDecoration: 'none'}} key={index} onClick={ () => {this.handleClick(item.onclick)}}>
                                     <li >

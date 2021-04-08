@@ -41,24 +41,6 @@ class Login extends React.Component {
       //   }
       // }
 
-      setLogin(token, mail){
-        var decoded = jwt_decode(token);
-        Object.keys(decoded).forEach(function (key) {
-          let res = key.split("/");
-          if (res.length > 1) {
-            console.log(res[res.length-1]);
-              if (res[res.length - 1] === 'role') {
-                sessionStorage.setItem("role", decoded[key])
-              }
-              if (res[res.length - 1] === 'emailaddress' && decoded[key] == mail) {
-                sessionStorage.setItem("mail", decoded[key])
-                localStorage.setItem("mail", decoded[key])
-              }
-          }
-        });
-        sessionStorage.setItem("token", token);
-
-      }
 
       getLogin (mail, mdp) {
         //requete api pour la connection
@@ -78,15 +60,15 @@ class Login extends React.Component {
               if (res.length > 1) {
                   if (res[res.length - 1] === 'role') {
                     // mise en session du role 
-                    sessionStorage.setItem("role", decoded[key])
+                    window.role = decoded[key]
                   }
                   if (res[res.length - 1] === 'emailaddress' && decoded[key] == mail) {
                     // mise en session du mdp
-                    sessionStorage.setItem("mail", decoded[key])
+                    window.mail = decoded[key]
                   }
                   if (res[res.length - 1] === 'nameidentifier') {
                     // mise en session du mdp
-                    sessionStorage.setItem("identifier", decoded[key])
+                    window.id = decoded[key]
                   }
               }
             });
@@ -116,26 +98,26 @@ class Login extends React.Component {
         return (
         <div className="login">
           <div className="session">
-          <div className="left">
-            <img src="http://localhost:3000/RaiseUrHand.jpg" />
-            {this.state.msgErreur === '' ? <p></p> : <p className='error'>{this.state.msgErreur}</p>}
-          </div>
-          <form className="log-in" onSubmit={this.handleSubmit}> 
-            <img src="http://localhost:3000/UniLaSalle_couleur_text.png" />
-            <div className="floating-label">
-              <input placeholder="Email" type="email" name="email" className='input' value={this.state.mail} onChange={this.handleChangeMail} required/>
-              <label htmlFor="email">Email:</label>
-              <div className="icon">
-              </div>
+            <div className="left">
+              <img src="http://localhost:3000/RaiseUrHand.jpg" />
+              {this.state.msgErreur === '' ? <p></p> : <p className='error'>{this.state.msgErreur}</p>}
             </div>
-            <div className="floating-label">
-              <input placeholder="Mot de passe" type="password" name="password" value={this.state.mdp} onChange={this.handleChangeMdp} required/>
-              <label htmlFor="password">Mot de passe:</label>
-              <div className="icon">
+            <form className="log-in" onSubmit={this.handleSubmit}> 
+              <img src="http://localhost:3000/UniLaSalle_couleur_text.png" />
+              <div className="floating-label">
+                <input placeholder="Email" type="email" name="email" className='input' value={this.state.mail} onChange={this.handleChangeMail} required/>
+                <label htmlFor="email">Email:</label>
+                <div className="icon">
+                </div>
               </div>
-            </div>
-            <button type="submit" >Login</button>
-          </form>
+              <div className="floating-label">
+                <input placeholder="Mot de passe" type="password" name="password" value={this.state.mdp} onChange={this.handleChangeMdp} required/>
+                <label htmlFor="password">Mot de passe:</label>
+                <div className="icon">
+                </div>
+              </div>
+              <button type="submit" >Login</button>
+            </form>
           </div>
         </div>
         );
